@@ -8,6 +8,11 @@ const port = 3000
 //cấu hình thêm static file
 app.use(express.static(path.join(__dirname,'public')))
 
+app.use(express.urlencoded({
+  extended: true
+}));
+app.use(express.json());
+
 //http logger 
 app.use(morgan('combined'))
 
@@ -25,6 +30,15 @@ app.get('/', (req, res) => {
 
 app.get('/news', (req, res) => {
   res.render('news');
+})
+
+app.get('/search', (req, res) => {
+  res.render('search');
+})
+
+app.post('/search', (req, res) => {
+  console.log(req.body)
+  res.send();
 })
 
 app.listen(port, () => {
