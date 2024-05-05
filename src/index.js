@@ -30,6 +30,6 @@ app.set('view engine', 'hbs');
 // khi khởi động server sẽ vào app chuyển đến các file trong routes
     route(app);
 
-           app.listen(port, () => {
+     app.listen(port, () => {
             console.log(`Example app listening on port ${port}`);
         });
