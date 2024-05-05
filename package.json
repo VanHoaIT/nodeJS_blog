@@ -4,7 +4,7 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "beautiful": "lint-staged", 
+
     "start": "nodemon --inspect src/index.js",
     "watch": "node-sass --watch src/resources/scss/ --output src/public/css",
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -25,10 +25,12 @@
   },
   "homepage": "https://github.com/VanHoaIT/nodeJS_blog#readme",
   "lint-staged": {
-    "src/**/*.{js}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
+    "src/**/*.{js,json}": "prettier --single-quote --trailing-comma all --tab-width 4 --write"
   },
-  "hooks": {
-    "pre-commit": "lint-staged"
+  "husky":{
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   },
   "dependencies": {
     "express": "^4.19.2",
