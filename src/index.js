@@ -20,16 +20,18 @@ app.use(express.json());
 // app.use(morgan('combined'))
 
 //template engine
-app.engine('hbs', handlebars({
-    extname: '.hbs', //đổi đuôi file handlebars thành .hbs
-  }),
+app.engine(
+    'hbs',
+    handlebars({
+        extname: '.hbs', //đổi đuôi file handlebars thành .hbs
+    }),
 );
 app.set('view engine', 'hbs');
-  app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources/views'));
 
 // khi khởi động server sẽ vào app chuyển đến các file trong routes
-    route(app);
+route(app);
 
-     app.listen(port, () => {
-            console.log(`Example app listening on port ${port}`);
-        });
+app.listen(port, () => {
+    console.log(`Example app listening on port ${port}`);
+});
